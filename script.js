@@ -9,7 +9,11 @@ function getComputerChoice (){
     return choice = "scissors"
    }
 }
-
-
-
 console.log(getComputerChoice())
+
+
+function getHumanChoice (user){
+    return user = prompt("Enter your choice", "").toLowerCase()
+} 
+console.log(getHumanChoice())
+
