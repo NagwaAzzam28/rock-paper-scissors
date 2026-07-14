@@ -11,8 +11,8 @@ function getComputerChoice (){
 }
 
 
-function getHumanChoice (user){
-    return user = prompt("Enter your choice", "").toLowerCase()
+function getHumanChoice (){
+    return prompt("Enter your choice", "").toLowerCase()
 } 
 
 
@@ -21,10 +21,10 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-function playRound(humanChoice, computerChoice) {
+function playRound() {
 
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
 
     if (computerChoice === "rock" && humanChoice === "rock"){
     
@@ -55,9 +55,28 @@ function playRound(humanChoice, computerChoice) {
         return "Make sure you enter a valid choice"
     }
 }
-console.log(playRound());
-console.log(humanScore);
-console.log(computerScore)
+
+function playGame() {
+
+    console.log(playRound())
+    console.log(playRound())
+    console.log(playRound())
+    console.log(playRound())
+    console.log(playRound())
+
+    if (computerScore > humanScore){
+        return `Computer: ${computerScore} vs Human: ${humanScore} - The Computer is the winner`
+    } else if (humanScore > computerScore) {
+        return `Computer: ${computerScore} vs Human: ${humanScore} - Congrats! You are the winner`
+    } else {
+        return `Computer: ${computerScore} vs Human: ${humanScore} - It's a Tie`
+    }
+
+    
+}
+
+
+console.log(playGame())
 
 
 
