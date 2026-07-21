@@ -46,20 +46,20 @@ function playRound() {
   }
 }
 
-function playGame() {
-  console.log(playRound());
-  console.log(playRound());
-  console.log(playRound());
-  console.log(playRound());
-  console.log(playRound());
+// function playGame() {
+//   console.log(playRound());
+//   console.log(playRound());
+//   console.log(playRound());
+//   console.log(playRound());
+//   console.log(playRound());
 
-  if (computerScore > humanScore) {
-    return `Computer: ${computerScore} vs Human: ${humanScore} - The Computer is the winner`;
-  } else if (humanScore > computerScore) {
-    return `Computer: ${computerScore} vs Human: ${humanScore} - Congrats! You are the winner`;
-  } else {
-    return `Computer: ${computerScore} vs Human: ${humanScore} - It's a Tie`;
-  }
-}
+//   if (computerScore > humanScore) {
+//     return `Computer: ${computerScore} vs Human: ${humanScore} - The Computer is the winner`;
+//   } else if (humanScore > computerScore) {
+//     return `Computer: ${computerScore} vs Human: ${humanScore} - Congrats! You are the winner`;
+//   } else {
+//     return `Computer: ${computerScore} vs Human: ${humanScore} - It's a Tie`;
+//   }
+// }
 
-console.log(playGame());
+// console.log(playGame());
