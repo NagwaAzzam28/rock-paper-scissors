@@ -1,44 +1,57 @@
+const rockBtn = document.querySelector("#rock");
+const paperkBtn = document.querySelector("#paper");
+const scissorsBtn = document.querySelector("#scissors");
+
 function getComputerChoice() {
   const computerChoices = ["rock", "paper", "scissors"];
   const choice = Math.floor(Math.random() * computerChoices.length);
   return computerChoices[choice];
 }
 
-function getHumanChoice() {
-  return prompt("Enter your choice", "").toLowerCase();
+function getHumanChoice(btn) {
+  btn.addEventListener("click", (e) => {
+    const humanChoice = e.currentTarget.innerText.toLowerCase();
+    playRound(humanChoice);
+  });
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
-function playRound() {
-  const humanChoice = getHumanChoice();
-  const computerChoice = getComputerChoice();
-
-  if (
-    (computerChoice === "rock" && humanChoice === "rock") ||
-    (computerChoice === "paper" && humanChoice === "paper") ||
-    (computerChoice === "scissors" && humanChoice === "scissors")
-  ) {
-    return `computer choice is ${computerChoice} and you chose ${humanChoice} so it's a tie`;
-  } else if (
-    (computerChoice === "rock" && humanChoice === "paper") ||
-    (computerChoice === "paper" && humanChoice === "scissors") ||
-    (computerChoice === "scissors" && humanChoice === "rock")
-  ) {
-    humanScore++;
-    return `computer choice is ${computerChoice} and you chose ${humanChoice} so you win!`;
-  } else if (
-    (computerChoice === "rock" && humanChoice === "scissors") ||
-    (computerChoice === "paper" && humanChoice === "rock") ||
-    (computerChoice === "scissors" && humanChoice === "paper")
-  ) {
-    computerScore++;
-    return `computer choice is ${computerChoice} and you chose ${humanChoice} so you lose`;
-  } else {
-    return "Make sure you enter a valid choice";
-  }
+function setHumanEvents() {
+  getHumanChoice(rockBtn);
+  getHumanChoice(paperkBtn);
+  getHumanChoice(scissorsBtn);
 }
+
+// let humanScore = 0;
+// let computerScore = 0;
+
+// function playRound() {
+
+//   const computerChoice = getComputerChoice();
+
+//   if (
+//     (computerChoice === "rock" && humanChoice === "rock") ||
+//     (computerChoice === "paper" && humanChoice === "paper") ||
+//     (computerChoice === "scissors" && humanChoice === "scissors")
+//   ) {
+//     return `computer choice is ${computerChoice} and you chose ${humanChoice} so it's a tie`;
+//   } else if (
+//     (computerChoice === "rock" && humanChoice === "paper") ||
+//     (computerChoice === "paper" && humanChoice === "scissors") ||
+//     (computerChoice === "scissors" && humanChoice === "rock")
+//   ) {
+//     humanScore++;
+//     return `computer choice is ${computerChoice} and you chose ${humanChoice} so you win!`;
+//   } else if (
+//     (computerChoice === "rock" && humanChoice === "scissors") ||
+//     (computerChoice === "paper" && humanChoice === "rock") ||
+//     (computerChoice === "scissors" && humanChoice === "paper")
+//   ) {
+//     computerScore++;
+//     return `computer choice is ${computerChoice} and you chose ${humanChoice} so you lose`;
+//   } else {
+//     return "Make sure you enter a valid choice";
+//   }
+// }
 
 // function playGame() {
 //   console.log(playRound());
