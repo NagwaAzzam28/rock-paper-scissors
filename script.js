@@ -3,11 +3,22 @@ const paperkBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
 const playerScore = document.querySelector("#player-score");
 const compScore = document.querySelector("#computer-score");
+const roundResult = document.querySelector("#round-result");
+const playerRoundChoice = document.querySelector("#player-round-choice");
+const computerRoundChoice = document.querySelector("#computer-round-choice");
 const finalResult = document.querySelector("#final-result");
 const playAgainBtn = document.querySelector("#reset");
 
 playAgainBtn.addEventListener("click", () => {
-  location.reload();
+  rockBtn.disabled = false;
+  paperkBtn.disabled = false;
+  scissorsBtn.disabled = false;
+  humanScore = 0;
+  computerScore = 0;
+  playerScore.textContent = 0;
+  compScore.textContent = 0;
+  finalResult.textContent = "";
+  playAgainBtn.style.display = "none";
 });
 // the human choice
 
@@ -38,13 +49,9 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice) {
-  const roundResult = document.querySelector("#round-result");
-
-  const playerRoundChoice = document.querySelector("#player-round-choice");
-  playerRoundChoice.textContent = humanChoice;
-
   const computerChoice = getComputerChoice();
-  const computerRoundChoice = document.querySelector("#computer-round-choice");
+
+  playerRoundChoice.textContent = humanChoice;
   computerRoundChoice.textContent = computerChoice;
 
   if (
@@ -52,7 +59,7 @@ function playRound(humanChoice) {
     (computerChoice === "paper" && humanChoice === "paper") ||
     (computerChoice === "scissors" && humanChoice === "scissors")
   ) {
-    return (roundResult.textContent = `TIE`);
+    roundResult.textContent = "TIE";
   } else if (
     (computerChoice === "rock" && humanChoice === "paper") ||
     (computerChoice === "paper" && humanChoice === "scissors") ||
@@ -62,16 +69,9 @@ function playRound(humanChoice) {
     playerScore.textContent = humanScore;
 
     if (humanScore === 5) {
-      rockBtn.disabled = true;
-      paperkBtn.disabled = true;
-      scissorsBtn.disabled = true;
-      finalResult.textContent = "congratulation! You Won!";
-      playAgainBtn.style.display = "block";
-      playerRoundChoice.textContent = "";
-      computerRoundChoice.textContent = "";
-      roundResult.textContent = "";
+      endGame("congratulation! You Won!");
     } else {
-      return (roundResult.textContent = `YOU WIN`);
+      roundResult.textContent = "YOU WIN";
     }
   } else if (
     (computerChoice === "rock" && humanChoice === "scissors") ||
@@ -82,16 +82,20 @@ function playRound(humanChoice) {
     compScore.textContent = computerScore;
 
     if (computerScore === 5) {
-      rockBtn.disabled = true;
-      paperkBtn.disabled = true;
-      scissorsBtn.disabled = true;
-      finalResult.textContent = "The computer wom, Good Luck next time";
-      playAgainBtn.style.display = "block";
-      playerRoundChoice.textContent = "";
-      computerRoundChoice.textContent = "";
-      roundResult.textContent = "";
+      endGame("The computer won, Better luck next time");
     } else {
-      return (roundResult.textContent = `COMPUTER WINS`);
+      roundResult.textContent = "COMPUTER WINS";
     }
   }
+}
+
+function endGame(message) {
+  rockBtn.disabled = true;
+  paperkBtn.disabled = true;
+  scissorsBtn.disabled = true;
+  finalResult.textContent = message;
+  playAgainBtn.style.display = "block";
+  playerRoundChoice.textContent = "";
+  computerRoundChoice.textContent = "";
+  roundResult.textContent = "";
 }
