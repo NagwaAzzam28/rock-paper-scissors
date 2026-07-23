@@ -6,44 +6,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <title>Rock Paper Scissors</title>
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
+    <section class="rock-paper-scissors">
+      <h1>Rock <span>Paper</span> Scissors</h1>
+      <p class="message">First to 5 points wins</p>
 
-    <div class="round-borad">
-      <p class="round-choice">
-        Player choice: <span id="player-round-choice"></span>
-      </p>
-      <p id="round-result"></p>
-      <p class="round-choice">
-        computer choice: <span id="computer-round-choice"></span>
-      </p>
-    </div>
+      <div class="round-board">
+        <div class="round choice">
+          <p>you</p>
+          <span id="player-round-choice"> </span>
+        </div>
 
-    <div class="game">
-      <button id="rock">rock</button>
-      <button id="paper">paper</button>
-      <button id="scissors">scissors</button>
-    </div>
+        <div class="round outcome">
+          <p>round result</p>
+          <span id="round-result"></span>
+          <div class="line"></div>
+        </div>
 
-    <div class="score">
-      <p class="score-board">
-        Player score: <span id="player-score">0</span>
-      </p>
-      <p class="score-board">vs</p>
-        computer score: <span id="computer-score">0</span>
-      </p>
-    </div>
+        <div class="round choice">
+          <p>computer</p>
+          <span id="computer-round-choice"> </span>
+        </div>
+      </div>
 
-    <p id="final-result"></p>
-    <button id="reset">play again</button>
+      <div class="game-btns">
+        <button id="rock" class="game-btn">
+          <i class="fa-solid fa-hand-back-fist"></i>
+          <span>rock</span>
+        </button>
 
- 
+        <button id="paper" class="game-btn">
+          <i class="fa-solid fa-hand"></i>
+          <span>paper</span>
+        </button>
+        <button id="scissors" class="game-btn">
+          <i class="fa-solid fa-hand-scissors"></i>
+          <span>scissors</span>
+        </button>
+      </div>
+
+      <div class="score-board">
+        <div class="score">
+          <p>Player</p>
+          <span id="player-score">0</span>
+        </div>
+        <p class="score">vs</p>
+        <div class="score">
+          <p>computer</p>
+          <span id="computer-score">0</span>
+        </div>
+      </div>
+
+      <button id="reset">
+        <span>reset</span>
+        <i class="fa-solid fa-arrow-rotate-left"></i>
+      </button>
+    </section>
   </body>
 </html>
