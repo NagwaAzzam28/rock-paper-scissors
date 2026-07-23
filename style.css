@@ -219,7 +219,7 @@ body {
 /* the game over  */
 
 #reset {
-    display: block;
+    display: none;
     border: none;
     cursor: pointer;
     background-color: #FF646B;
